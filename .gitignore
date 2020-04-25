@@ -2,6 +2,11 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+UnityGameProject/
+ZanyBattleTactics/[Aa]ssets/Penguin/
+ZanyBattleTactics/[Aa]ssets/SimplifiedTiles/
+ZanyBattleTactics/[Aa]ssets/BackgroundElements/
+ZanyBattleTactics/[Aa]ssets/Mercenary Penguin/
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -58,3 +63,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+UnityGameProject/ProjectSettings/TagManager.asset
+UnityGameProject/ProjectSettings/GraphicsSettings.asset
+UnityGameProject/Assets/Scenes/SampleScene.unity
