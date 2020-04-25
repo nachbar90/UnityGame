@@ -2,6 +2,11 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+UnityGameProject/
+ZanyBattleTactics/[Aa]ssets/Penguin/
+ZanyBattleTactics/[Aa]ssets/SimplifiedTiles/
+ZanyBattleTactics/[Aa]ssets/BackgroundElements/
+ZanyBattleTactics/[Aa]ssets/Mercenary Penguin/
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
