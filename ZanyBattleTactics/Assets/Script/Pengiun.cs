@@ -18,8 +18,11 @@ public class Pengiun : MonoBehaviour
 
     void Update()
     {
-        float mouseY = Input.mousePosition.y / Screen.height;
-        //Debug.Log(mouseY);
+        Vector3 mousePosition = Input.mousePosition;
+        float mouseY = mousePosition.y / Screen.height;
+        float mouseX = mousePosition.x / Screen.width;
+        Debug.Log("X" + mouseX);
+        Debug.Log("Y" + mouseY);
         MovePenguinAnimation(mouseY);
         Shoot(mouseY);
     }
@@ -74,6 +77,7 @@ public class Pengiun : MonoBehaviour
 
     public void Shoot(float mousePosition)
     {
+        GameObject bullet;
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -83,15 +87,22 @@ public class Pengiun : MonoBehaviour
             {
                 case "UP":
                     animator.SetTrigger("ShootUp");
+                    bullet = Instantiate(Bullet, new Vector3(-7.1f, 2.5f), Quaternion.Euler(0, 0, 32.2f)) as GameObject;
+                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 3);
                     break;
                 case "DOWN":
                     animator.SetTrigger("ShootDown");
+                    bullet = Instantiate(Bullet, new Vector3(-7f, 0.4f), Quaternion.Euler(0, 0, -29)) as GameObject;
+                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(10, -2);
                     break;
                 default:
                     animator.SetTrigger("Shoot");
+                    bullet = Instantiate(Bullet, new Vector3(-6.8f, 1.2f), Quaternion.Euler(0, 0, 0)) as GameObject;
+                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
                     break;
             }
 
+            
         }
 
     }
