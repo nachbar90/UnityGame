@@ -99,7 +99,7 @@ public class Pengiun : MonoBehaviour
                     animator.SetTrigger("ShootUp");
                     bullet = Instantiate(Bullet, new Vector3(-7.1f, 2.5f), Quaternion.Euler(0, 0, 32.2f)) as GameObject;
                     body = bullet.GetComponent<Rigidbody2D>();
-                    body.velocity = new Vector2(75, 45);
+                    body.velocity = new Vector2(25, 15);
                     body.angularVelocity = -1f;
                     break;
                 case "DOWN":
