@@ -10,6 +10,8 @@ public class Pengiun : MonoBehaviour
     bool isUp = false;
     bool isMiddle = false;
     bool isDown = false;
+    float fireRate = 0.6f;
+    float nextFire = -1f;
 
     void Start()
     {
@@ -20,11 +22,18 @@ public class Pengiun : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         float mouseY = mousePosition.y / Screen.height;
-        float mouseX = mousePosition.x / Screen.width;
-        Debug.Log("X" + mouseX);
-        Debug.Log("Y" + mouseY);
+     // Debug.Log("Y" + mouseY);
         MovePenguinAnimation(mouseY);
-        Shoot(mouseY);
+
+        if (nextFire > 0)
+        {
+            nextFire -= Time.deltaTime;
+            return;
+        } 
+        else
+        {  
+            Shoot(mouseY);
+        }  
     }
 
     void MovePenguinAnimation(float mousePosition)
@@ -78,6 +87,7 @@ public class Pengiun : MonoBehaviour
     public void Shoot(float mousePosition)
     {
         GameObject bullet;
+        Rigidbody2D body;
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -88,21 +98,23 @@ public class Pengiun : MonoBehaviour
                 case "UP":
                     animator.SetTrigger("ShootUp");
                     bullet = Instantiate(Bullet, new Vector3(-7.1f, 2.5f), Quaternion.Euler(0, 0, 32.2f)) as GameObject;
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 3);
+                    body = bullet.GetComponent<Rigidbody2D>();
+                    body.velocity = new Vector2(75, 45);
+                    body.angularVelocity = -1f;
                     break;
                 case "DOWN":
                     animator.SetTrigger("ShootDown");
                     bullet = Instantiate(Bullet, new Vector3(-7f, 0.4f), Quaternion.Euler(0, 0, -29)) as GameObject;
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(10, -2);
+                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(20, -12);
                     break;
                 default:
                     animator.SetTrigger("Shoot");
                     bullet = Instantiate(Bullet, new Vector3(-6.8f, 1.2f), Quaternion.Euler(0, 0, 0)) as GameObject;
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(50, 0);
                     break;
             }
+            nextFire = fireRate;
 
-            
         }
 
     }
