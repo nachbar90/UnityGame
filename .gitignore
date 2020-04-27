@@ -3,6 +3,8 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 UnityGameProject/
+ZanyBattleTactics/[Aa]ssets/Zombie/
+ZanyBattleTactics/[Aa]ssets/Monster/
 ZanyBattleTactics/[Aa]ssets/Penguin/
 ZanyBattleTactics/[Aa]ssets/SimplifiedTiles/
 ZanyBattleTactics/[Aa]ssets/BackgroundElements/
