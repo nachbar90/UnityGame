@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingEnemyPath : MonoBehaviour
+public class WalkingEnemyPath : MonoBehaviour
 {
     [SerializeField] List<Transform> points = new List<Transform>();
     [SerializeField] float speed = 4f;
@@ -12,7 +12,7 @@ public class FlyingEnemyPath : MonoBehaviour
     void Start()
     {
         points = enemyConfiguration.Points();
-        transform.position =  points[i].transform.position;
+        transform.position = points[i].transform.position;
     }
 
     void Update()
@@ -26,7 +26,7 @@ public class FlyingEnemyPath : MonoBehaviour
             {
                 i++;
             }
-                
+
         }
         else
         {

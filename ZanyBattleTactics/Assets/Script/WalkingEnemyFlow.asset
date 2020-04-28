@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897c2006e7a9bff498a0ef900c3b2a86, type: 3}
+  m_Name: WalkingEnemyFlow
+  m_EditorClassIdentifier: 
+  enemies: 0
+  creationTimeOfEnemy: 1
+  randomness: 0.5
+  path: {fileID: 3907068999477763789, guid: ed1f690f95a097c49b79b8451ffe08b3, type: 3}
+  enemy: {fileID: 1919924787406401078, guid: a9128f2d9ec68b7429244620f26de51a, type: 3}
+  enemySpeed: 3

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897c2006e7a9bff498a0ef900c3b2a86, type: 3}
+  m_Name: FlyingEnemFlow
+  m_EditorClassIdentifier: 
+  enemies: 0
+  creationTimeOfEnemy: 1
+  randomness: 0.5
+  path: {fileID: 1904362627924929824, guid: f31ba752b6a73f84197438efe402f098, type: 3}
+  enemy: {fileID: 7524113018874258231, guid: 25626746647b2864f976d3396359fec3, type: 3}
+  enemySpeed: 3
