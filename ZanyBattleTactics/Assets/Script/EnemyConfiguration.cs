@@ -6,16 +6,17 @@ using UnityEngine;
 public class EnemyConfiguration : ScriptableObject
 {
     [SerializeField] int enemies;
-    [SerializeField] float creationTimeOfEnemy = 1f;
+    [SerializeField] float timeBreakBeetwenEnemies = 1f;
     [SerializeField] float randomness = 0.5f;
     [SerializeField] GameObject path;
     [SerializeField] GameObject enemy;
     [SerializeField] float enemySpeed = 3f;
 
     public GameObject Enemy { get { return enemy; } }
-    public float CreationTimeOfEnemies { get { return creationTimeOfEnemy; } }
+    public float TimeBreakBeetwenEnemies { get { return timeBreakBeetwenEnemies; } }
     public float Randomness { get { return randomness; } }
     public int Enemies { get { return enemies; } }
+    public float EnemySpeed { get { return enemySpeed; } }
 
     public List<Transform> Points()
     {
