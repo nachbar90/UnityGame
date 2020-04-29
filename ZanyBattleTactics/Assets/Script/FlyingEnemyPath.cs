@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class FlyingEnemyPath : MonoBehaviour
 {
-    [SerializeField] List<Transform> points = new List<Transform>();
-    [SerializeField] float speed = 4f;
-    [SerializeField] EnemyConfiguration enemyConfiguration;
+    List<Transform> points = new List<Transform>();
+    private EnemyConfiguration _enemyConfiguration;
+    public EnemyConfiguration EnemyConfiguration { get { return _enemyConfiguration; } set { _enemyConfiguration = value;  } }
     int i = 0;
 
     void Start()
     {
-        points = enemyConfiguration.Points();
+        points = _enemyConfiguration.Points();
         transform.position =  points[i].transform.position;
     }
 
@@ -20,7 +20,7 @@ public class FlyingEnemyPath : MonoBehaviour
         if (i < points.Count)
         {
             var target = points[i].transform.position;
-            transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * _enemyConfiguration.EnemySpeed);
 
             if (transform.position == target)
             {
