@@ -7,10 +7,17 @@ public class EnemyCreator : MonoBehaviour
 {
 
     [SerializeField] List<EnemyConfiguration> enemyConfigurations;
+    [SerializeField] int numberOfLoops = 3;
     int index = 0;
-    void Start()
+
+    IEnumerator Start()
     {
-        StartCoroutine(InvokeFlyingAndWalkingEnemies());
+        int i = 0;
+        while (i < numberOfLoops)
+        {
+            yield return StartCoroutine(InvokeFlyingAndWalkingEnemies());
+            i++;
+        }
     }
 
     // Update is called once per frame
