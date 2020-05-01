@@ -548,6 +548,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b6ac07493b67c643b333ba84993694b, type: 2}
   - {fileID: 11400000, guid: 5ce2817bf2c6beb429d5756f36a93257, type: 2}
   - {fileID: 11400000, guid: deb2369b75c11cd46a06c818a84c0459, type: 2}
+  numberOfLoops: 6
 --- !u!4 &544327061
 Transform:
   m_ObjectHideFlags: 0
@@ -696,7 +697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550250771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.71, y: -3.94, z: -22.404297}
+  m_LocalPosition: {x: 4.74, y: -3.48, z: -22.404297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
