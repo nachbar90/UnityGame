@@ -16,24 +16,25 @@ public class Pengiun : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     void Update()
     {
         Vector3 mousePosition = Input.mousePosition;
         float mouseY = mousePosition.y / Screen.height;
-     // Debug.Log("Y" + mouseY);
+        // Debug.Log("Y" + mouseY);
         MovePenguinAnimation(mouseY);
 
         if (nextFire > 0)
         {
             nextFire -= Time.deltaTime;
             return;
-        } 
+        }
         else
-        {  
+        {
             Shoot(mouseY);
-        }  
+        }
     }
 
     void MovePenguinAnimation(float mousePosition)
@@ -44,7 +45,7 @@ public class Pengiun : MonoBehaviour
             animator.SetBool("0ToIdle", true);
             animator.SetBool("idleTo45", true);
             animator.SetBool("45ToIdle", false);
-            
+
             isUp = true;
             isMiddle = false;
         }
@@ -133,6 +134,11 @@ public class Pengiun : MonoBehaviour
         {
             return "Straight";
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        animator.SetTrigger("Hurt");
     }
 
 

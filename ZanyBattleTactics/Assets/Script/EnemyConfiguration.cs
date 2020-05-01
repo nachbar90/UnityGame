@@ -23,7 +23,6 @@ public class EnemyConfiguration : ScriptableObject
 
         foreach (Transform point in path.transform)
         {
-            Debug.Log("test");
             points.Add(point);
         }
         return points;
