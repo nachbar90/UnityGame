@@ -10,7 +10,7 @@ public class Pengiun : MonoBehaviour
     bool isUp = false;
     bool isMiddle = false;
     bool isDown = false;
-    float fireRate = 0.6f;
+    float fireRate = 0.65f;
     float nextFire = -1f;
 
     void Start()
@@ -23,7 +23,6 @@ public class Pengiun : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         float mouseY = mousePosition.y / Screen.height;
-        // Debug.Log("Y" + mouseY);
         MovePenguinAnimation(mouseY);
 
         if (nextFire > 0)
@@ -56,13 +55,13 @@ public class Pengiun : MonoBehaviour
             isUp = false;
 
         }
-        else if (mousePosition <= 0.7f && mousePosition >= 0.55f && isUp == false)
+        else if (mousePosition <= 0.7f && mousePosition >= 0.60f && isUp == false)
         {
             animator.SetBool("0ToIdle", true);
             animator.SetBool("IdleTo0", false);
             isMiddle = false;
         }
-        else if (mousePosition < 0.55f && mousePosition > 0.40f && isMiddle == false)
+        else if (mousePosition < 0.60f && mousePosition > 0.40f && isMiddle == false)
         {
             animator.SetBool("0ToIdle", false);
             animator.SetBool("IdleTo0", true);
@@ -106,7 +105,7 @@ public class Pengiun : MonoBehaviour
                 case "DOWN":
                     animator.SetTrigger("ShootDown");
                     bullet = Instantiate(Bullet, new Vector3(-7f, 0.4f), Quaternion.Euler(0, 0, -29)) as GameObject;
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(20, -12);
+                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(27, -12);
                     break;
                 default:
                     animator.SetTrigger("Shoot");
@@ -122,7 +121,7 @@ public class Pengiun : MonoBehaviour
 
     public string ResolveMousePosition(float mousePosition)
     {
-        if (mousePosition > 0.55f)
+        if (mousePosition > 0.6f)
         {
             return "UP";
         }
