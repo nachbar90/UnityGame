@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy Configuration")]
 public class EnemyConfiguration : ScriptableObject
 {
-    [SerializeField] int enemies;
+
     [SerializeField] float timeBreakBeetwenEnemies = 1f;
     [SerializeField] float randomness = 0.5f;
     [SerializeField] GameObject path;
@@ -15,7 +15,6 @@ public class EnemyConfiguration : ScriptableObject
     public GameObject Enemy { get { return enemy; } }
     public float TimeBreakBeetwenEnemies { get { return timeBreakBeetwenEnemies; } }
     public float Randomness { get { return randomness; } }
-    public int Enemies { get { return enemies; } }
     public float EnemySpeed { get { return enemySpeed; } }
 
     public List<Transform> Points()
