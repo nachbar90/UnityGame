@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBreakBeetwenEnemies: 1
   randomness: 0.5
-  path: {fileID: 5728432259384123916, guid: b772e4b4240cb1a4e86e14df5082d5b6, type: 3}
+  path: {fileID: 5306806489314213466, guid: 33ed4a6172227d640b17d08178655166, type: 3}
   enemy: {fileID: 7524113018874258231, guid: 25626746647b2864f976d3396359fec3, type: 3}
   enemySpeed: 4
