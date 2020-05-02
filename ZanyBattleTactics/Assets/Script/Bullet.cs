@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy"))
+        if (collision.gameObject.tag.Equals("Bat") || collision.gameObject.tag.Equals("Zombie"))
         {
             Destroy(gameObject);
         }
