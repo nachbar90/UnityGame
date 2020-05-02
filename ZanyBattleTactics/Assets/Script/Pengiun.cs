@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Pengiun : MonoBehaviour
 {
     [SerializeField] GameObject Bullet;
+    [SerializeField] List<GameObject> healthPointsObjects;
+
+    public int healthPoints = 3;
 
     Animator animator;
     bool isUp = false;
@@ -12,6 +17,7 @@ public class Pengiun : MonoBehaviour
     bool isDown = false;
     float fireRate = 0.65f;
     float nextFire = -1f;
+
 
     void Start()
     {
@@ -137,7 +143,39 @@ public class Pengiun : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        animator.SetTrigger("Hurt");
+        PenguinWasHit();
+        if (healthPoints != 0)
+        {
+            animator.SetTrigger("Hurt");           
+        }
+        else
+        {
+            animator.SetTrigger("Death");
+            StartCoroutine(InvokeGameOver());
+        }
+    }
+
+    private void PenguinWasHit()
+    {
+        healthPoints -= 1;
+        RemoveHeartPoint();
+    }
+
+    public void RemoveHeartPoint()
+    {
+        if (healthPointsObjects.Count != 0)
+        {
+            var lastIndex = healthPointsObjects.Count - 1;
+            var point = healthPointsObjects.ElementAt(lastIndex);
+            Destroy(point);
+            healthPointsObjects.RemoveAt(lastIndex);
+        }
+    }
+
+    public IEnumerator InvokeGameOver()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("GameOver");
     }
 
 

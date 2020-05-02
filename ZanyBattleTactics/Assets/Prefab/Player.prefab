@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1906251893107329644, guid: 9ee8fa896bba7fb45afabeeea1e27d47, type: 3}
+  healthContainerObject: {fileID: 8440263816742352158, guid: 9106d71bcb049d24698f3cd21ca4a60d,
+    type: 3}
 --- !u!61 &1159674990503499310
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
             {
                 Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
                 rb.bodyType = RigidbodyType2D.Dynamic;
-                rb.gravityScale = 3f;
+                rb.gravityScale = 4f;
                 animator.SetTrigger("BatDeath");
             }
             else
