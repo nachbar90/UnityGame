@@ -16,4 +16,4 @@ MonoBehaviour:
   randomness: 0.5
   path: {fileID: 846312922476288056, guid: f31ba752b6a73f84197438efe402f098, type: 3}
   enemy: {fileID: 7524113018874258231, guid: 25626746647b2864f976d3396359fec3, type: 3}
-  enemySpeed: 6
+  enemySpeed: 4

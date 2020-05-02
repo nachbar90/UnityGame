@@ -14,7 +14,7 @@ public class Doors : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy"))
+        if (collision.gameObject.tag.Equals("Zombie"))
         {
             animator = player.GetComponent<Animator>();
             animator.SetTrigger("Hurt");

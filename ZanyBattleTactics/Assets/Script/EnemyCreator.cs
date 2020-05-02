@@ -39,7 +39,7 @@ public class EnemyCreator : MonoBehaviour
     private IEnumerator InvokeEnemy(EnemyConfiguration enemyConfiguration)
     {
         var enemy = Instantiate(enemyConfiguration.Enemy, enemyConfiguration.Points()[0].transform.position, Quaternion.identity);
-        enemy.GetComponent<FlyingEnemyPath>().EnemyConfiguration = enemyConfiguration;
+        enemy.GetComponent<Enemy>().EnemyConfiguration = enemyConfiguration;
        // Debug.LogError("name " +enemyConfiguration.Enemy.name);
         yield return new WaitForSeconds(enemyConfiguration.TimeBreakBeetwenEnemies);
     }

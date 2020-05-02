@@ -21,7 +21,7 @@ public class Pengiun : MonoBehaviour
 
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
+        Vector3 mousePosition = Input.mousePosition;   
         float mouseY = mousePosition.y / Screen.height;
         MovePenguinAnimation(mouseY);
 
