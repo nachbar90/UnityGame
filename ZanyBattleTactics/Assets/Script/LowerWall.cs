@@ -43,6 +43,7 @@ public class LowerWall : MonoBehaviour
     {
         var animator = gameObject.GetComponent<Animator>();
         animator.SetTrigger("Explosion");
+        FindObjectOfType<Score>().AddPointsToTotalScore(gameObject);
         yield return new WaitForSeconds(0.05f);
         Destroy(gameObject);
     }

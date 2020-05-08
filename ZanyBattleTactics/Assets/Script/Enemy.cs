@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
                 Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 rb.gravityScale = 4f;
+                rb.velocity = new Vector2(0, -7);
                 animator.SetTrigger("BatDeath");
             }
             else
@@ -66,6 +67,7 @@ public class Enemy : MonoBehaviour
         var animator = gameObject.GetComponent<Animator>();
         animator.SetTrigger("Explosion");
         yield return new WaitForSeconds(0.05f);
+        FindObjectOfType<Score>().AddPointsToTotalScore(gameObject);
         Destroy(gameObject);
     }
 }
