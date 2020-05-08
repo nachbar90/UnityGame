@@ -18,6 +18,7 @@ public class Doors : MonoBehaviour
         {
             animator = player.GetComponent<Animator>();
             animator.SetTrigger("Hurt");
+            player.GetComponent<Pengiun>().PenguinWasHit();
         };
     }
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +30,8 @@ public class EnemyCreator : MonoBehaviour
     {
         for (int i = index; i < enemyConfigurations.Count; i++)
         {
-            var currentConfig = enemyConfigurations[i];
+            var randomIndex = Random.Range(0, 3);
+            var currentConfig = enemyConfigurations[randomIndex];
             yield return StartCoroutine(InvokeEnemy(currentConfig));
         }
 
@@ -40,7 +41,6 @@ public class EnemyCreator : MonoBehaviour
     {
         var enemy = Instantiate(enemyConfiguration.Enemy, enemyConfiguration.Points()[0].transform.position, Quaternion.identity);
         enemy.GetComponent<Enemy>().EnemyConfiguration = enemyConfiguration;
-       // Debug.LogError("name " +enemyConfiguration.Enemy.name);
-        yield return new WaitForSeconds(enemyConfiguration.TimeBreakBeetwenEnemies);
+        yield return new WaitForSeconds(enemyConfiguration.TimeBreakBeetwenEnemies * Random.Range(0.5f, 1f));
     }
 }

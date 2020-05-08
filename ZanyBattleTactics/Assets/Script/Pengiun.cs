@@ -143,22 +143,26 @@ public class Pengiun : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PenguinWasHit();
+        if (collision.gameObject.tag.Equals("Bat"))
+        {
+            PenguinWasHit();
+        }
+    }
+
+    public void PenguinWasHit()
+    {
+        healthPoints -= 1;
+        RemoveHeartPoint();
+
         if (healthPoints != 0)
         {
-            animator.SetTrigger("Hurt");           
+            animator.SetTrigger("Hurt");
         }
         else
         {
             animator.SetTrigger("Death");
             StartCoroutine(InvokeGameOver());
         }
-    }
-
-    private void PenguinWasHit()
-    {
-        healthPoints -= 1;
-        RemoveHeartPoint();
     }
 
     public void RemoveHeartPoint()
