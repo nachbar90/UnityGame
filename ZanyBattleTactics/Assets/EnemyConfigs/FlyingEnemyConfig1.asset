@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897c2006e7a9bff498a0ef900c3b2a86, type: 3}
   m_Name: FlyingEnemyConfig1
   m_EditorClassIdentifier: 
-  timeBreakBeetwenEnemies: 1.8
+  timeBreakBeetwenEnemies: 3
   path: {fileID: 846312922476288056, guid: f31ba752b6a73f84197438efe402f098, type: 3}
   enemy: {fileID: 7524113018874258231, guid: 25626746647b2864f976d3396359fec3, type: 3}
-  enemySpeed: 4
+  enemySpeed: 3

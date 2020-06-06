@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyCreator : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class EnemyCreator : MonoBehaviour
             yield return StartCoroutine(InvokeFlyingAndWalkingEnemies());
             i++;
         }
+        yield return StartCoroutine(WinGame());
     }
 
     // Update is called once per frame
@@ -42,5 +44,11 @@ public class EnemyCreator : MonoBehaviour
         var enemy = Instantiate(enemyConfiguration.Enemy, enemyConfiguration.Points()[0].transform.position, Quaternion.identity);
         enemy.GetComponent<Enemy>().EnemyConfiguration = enemyConfiguration;
         yield return new WaitForSeconds(enemyConfiguration.TimeBreakBeetwenEnemies * Random.Range(0.5f, 1f));
+    }
+
+    private IEnumerator WinGame()
+    {
+        yield return new WaitForSeconds(10f);
+        SceneManager.LoadScene("WinScene");
     }
 }

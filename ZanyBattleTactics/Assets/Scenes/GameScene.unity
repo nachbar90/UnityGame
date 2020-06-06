@@ -935,7 +935,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b6ac07493b67c643b333ba84993694b, type: 2}
   - {fileID: 11400000, guid: 5ce2817bf2c6beb429d5756f36a93257, type: 2}
   - {fileID: 11400000, guid: deb2369b75c11cd46a06c818a84c0459, type: 2}
-  numberOfLoops: 15
+  numberOfLoops: 2
 --- !u!4 &544327061
 Transform:
   m_ObjectHideFlags: 0
@@ -3219,7 +3219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -92, y: 71.399994}
+  m_AnchoredPosition: {x: -94, y: 59}
   m_SizeDelta: {x: 128.29999, y: 88.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2043363507
