@@ -17,6 +17,7 @@ public class Pengiun : MonoBehaviour
     bool isDown = false;
     float fireRate = 0.65f;
     float nextFire = -1f;
+    float mouseY = 0.5f;
 
 
     void Start()
@@ -27,25 +28,31 @@ public class Pengiun : MonoBehaviour
 
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;   
-        float mouseY = mousePosition.y / Screen.height;
-        MovePenguinAnimation(mouseY);
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Vector3 touchPos = touch.position;
+            float mouseX = touchPos.x / Screen.width;
+            if (mouseX < 0.8f)
+            {
+                mouseY = touchPos.y / Screen.height;
+                MovePenguinAnimation(mouseY);
+            }
+        }
+
 
         if (nextFire > 0)
         {
             nextFire -= Time.deltaTime;
             return;
         }
-        else
-        {
-            Shoot(mouseY);
-        }
     }
 
     void MovePenguinAnimation(float mousePosition)
     {
 
-        if (mousePosition > 0.7f && isUp == false)
+        if (mousePosition > 0.6f && isUp == false)
         {
             animator.SetBool("0ToIdle", true);
             animator.SetBool("idleTo45", true);
@@ -54,14 +61,14 @@ public class Pengiun : MonoBehaviour
             isUp = true;
             isMiddle = false;
         }
-        else if (mousePosition <= 0.7f && isUp == true)
+        else if (mousePosition <= 0.6f && isUp == true)
         {
             animator.SetBool("idleTo45", false);
             animator.SetBool("45ToIdle", true);
             isUp = false;
 
         }
-        else if (mousePosition <= 0.7f && mousePosition >= 0.60f && isUp == false)
+        else if (mousePosition <= 0.6f && mousePosition >= 0.60f && isUp == false)
         {
             animator.SetBool("0ToIdle", true);
             animator.SetBool("IdleTo0", false);
@@ -90,14 +97,15 @@ public class Pengiun : MonoBehaviour
 
     }
 
-    public void Shoot(float mousePosition)
+    public void Shoot()
     {
         GameObject bullet;
         Rigidbody2D body;
 
-        if (Input.GetButtonDown("Fire1"))
+        if (nextFire < 0)
         {
-            string direction = ResolveMousePosition(mousePosition);
+            Debug.Log(mouseY);
+            string direction = ResolveMousePosition(mouseY);
 
             switch (direction)
             {
@@ -120,7 +128,11 @@ public class Pengiun : MonoBehaviour
                     break;
             }
             nextFire = fireRate;
-
+        }
+        else
+        {
+            nextFire -= Time.deltaTime;
+            return;
         }
 
     }
