@@ -48,7 +48,7 @@ public class EnemyCreator : MonoBehaviour
 
     private IEnumerator WinGame()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(8f);
         SceneManager.LoadScene("WinScene");
     }
 }

@@ -935,7 +935,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b6ac07493b67c643b333ba84993694b, type: 2}
   - {fileID: 11400000, guid: 5ce2817bf2c6beb429d5756f36a93257, type: 2}
   - {fileID: 11400000, guid: deb2369b75c11cd46a06c818a84c0459, type: 2}
-  numberOfLoops: 2
+  numberOfLoops: 7
 --- !u!4 &544327061
 Transform:
   m_ObjectHideFlags: 0
