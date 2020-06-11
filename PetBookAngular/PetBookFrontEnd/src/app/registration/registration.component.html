@@ -1,0 +1,18 @@
+<form #registrationForm="ngForm" (ngSubmit)="register()">
+  <h2 class="text-center tekst">Rejestracja</h2>
+  <hr>
+
+  <div class="form-group">
+    <input type="text" name="name" class="form-control" placeholder="Nazwa użytkownika" required [(ngModel)]="petData.name">
+  </div>
+
+  <div class="form-group">
+    <input type="password" name="password" class="form-control" placeholder="Hasło" required [(ngModel)]="petData.password">
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success button" type="submit">Zarejestruj się</button>
+    <button class="btn btn-default button" type="button" (click)="cancelRegistration()">Anuluj</button>
+  </div>
+  
+</form>
