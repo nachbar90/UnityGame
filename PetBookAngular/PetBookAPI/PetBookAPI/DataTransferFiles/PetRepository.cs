@@ -28,12 +28,12 @@ namespace PetBookAPI.DataTransferFiles
 
         public async Task<Pet> GetPet(int petId)
         {
-            return await context.Pets.Include(pet => pet.Photos).FirstOrDefaultAsync(pet => pet.Id == petId);
+            return await context.Pets.Include(pet => pet.Photos).Include(pet => pet.Likes).FirstOrDefaultAsync(pet => pet.Id == petId);
         }
 
         public async Task<IEnumerable<Pet>> GetPets()
         {
-            return await context.Pets.Include(pet => pet.Photos).ToListAsync();
+            return await context.Pets.Include(pet => pet.Photos).Include(pet => pet.Likes).Where(pet => pet.Photos.Count > 0).ToListAsync();
         }
 
         public async Task<bool> Save()
@@ -55,5 +55,16 @@ namespace PetBookAPI.DataTransferFiles
         {
             context.Remove(photo);
         }
+
+        public void AddLike(int likerId, int petId)
+        {
+            context.Likes.Add(new Likes { PetWhichLikedId = likerId, PetId = petId });
+        }
+
+        public List<int> GetLikes(int petId)
+        {
+            return context.Likes.Where(like => like.PetId == petId).Select(like => like.PetWhichLikedId).ToList();
+        }
+
     }
 }

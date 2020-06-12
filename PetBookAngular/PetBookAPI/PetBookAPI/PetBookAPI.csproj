@@ -6,13 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200525160428_pet.cs" />
-    <Compile Remove="Migrations\20200525160428_pet.Designer.cs" />
-    <Compile Remove="Migrations\20200607100438_photos.cs" />
-    <Compile Remove="Migrations\20200607100438_photos.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="CloudinaryDotNet" Version="1.11.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />

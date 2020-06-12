@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -20,24 +21,27 @@ namespace PetBookAPI.Controllers
     {
         private readonly IAuthorizationRepository authorizationRepository;
         private readonly IConfiguration configuration;
+        public IMapper mapper;
 
-        public AuthorizationController(IAuthorizationRepository authorizationRepository, IConfiguration configuration)
+        public AuthorizationController(IAuthorizationRepository authorizationRepository, IConfiguration configuration, IMapper mapper)
         {
             this.authorizationRepository = authorizationRepository;
             this.configuration = configuration;
+            this.mapper = mapper;
         }
 
         [HttpPost("registration")]
         public async Task<IActionResult> Register(Pet pet)
         {
             if (authorizationRepository.Exists(pet.Name))
-            {
+            { 
                 return BadRequest("Użytkownik o tej nazwie już istnieje. Wybierz inną.");
             }
 
-            var createdPet = await authorizationRepository.Register(pet);
-            return StatusCode(201);
-            //return CreatedAtRoute();
+            var newPet = await authorizationRepository.Register(pet);
+            var PetDTO = mapper.Map<PetDTO>(pet);
+            //return StatusCode(201);
+            return CreatedAtRoute("GetPet", new { controller = "Pets", petId = newPet.Id }, PetDTO);
         }
 
         [HttpPost("login")]
@@ -47,7 +51,7 @@ namespace PetBookAPI.Controllers
 
             if (loggedPet == null)
             {
-                return Unauthorized();
+                return Unauthorized("Nieprawidłowy login lub hasło");
             }
 
             var claims = new[]

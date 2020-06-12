@@ -1,18 +1,38 @@
-<form #registrationForm="ngForm" (ngSubmit)="register()">
-  <h2 class="text-center tekst">Rejestracja</h2>
+<form [formGroup]="regForm" (ngSubmit)="register()">
+  <h2 class="text-center tekst">Rejestracja zwierzaka</h2>
   <hr>
 
   <div class="form-group">
-    <input type="text" name="name" class="form-control" placeholder="Nazwa użytkownika" required [(ngModel)]="petData.name">
+     <input type="text" class="form-control is-invalid" [ngClass]="{'is-invalid': regForm.get('name').errors && regForm.get('name').touched}" formControlName="name" placeholder="Nazwa użytkownika"  >
+     <div class="invalid-feedback">Nazwa użytkownika nie może być pusta</div>  
+    </div>
+  
+    <div class="form-group">
+      <input type="password" class="form-control is-invalid" [ngClass]="{'is-invalid': regForm.get('password').errors && regForm.get('password').touched}" formControlName="password"  placeholder="Hasło">
+      <div class="invalid-feedback">Hasło musi zawierać co najmniej 3 znaki</div>  
+    </div>
+
+      <div class="form-group">
+          <input type="text" name="city" class="form-control" formControlName="city"  placeholder="Miasto">
+      </div>
+  
+    <div class="form-group text-center">
+      <button class="btn btn-success button" type="submit">Zarejestruj się</button>
+      <button class="btn btn-default button" type="button" (click)="cancelRegistration()">Anuluj</button>
+    </div>
+
+
+  <!--<div class="form-group">
+    <input type="text" name="name" class="form-control" required placeholder="Nazwa użytkownika" [(ngModel)]="petData.name">
   </div>
 
   <div class="form-group">
-    <input type="password" name="password" class="form-control" placeholder="Hasło" required [(ngModel)]="petData.password">
+    <input type="password" name="password" class="form-control" required placeholder="Hasło" [(ngModel)]="petData.password">
   </div>
 
   <div class="form-group text-center">
     <button class="btn btn-success button" type="submit">Zarejestruj się</button>
     <button class="btn btn-default button" type="button" (click)="cancelRegistration()">Anuluj</button>
-  </div>
+  </div>-->
   
 </form>

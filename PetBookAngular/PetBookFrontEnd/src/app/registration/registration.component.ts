@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TokenService } from '../APIGetters/token.service';
 import { AlertifyService } from '../APIGetters/alertify.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -10,25 +12,37 @@ import { AlertifyService } from '../APIGetters/alertify.service';
 export class RegistrationComponent implements OnInit {
   petData: any = {};
   @Output() cancel = new EventEmitter();
+  regForm: FormGroup;
 
-  constructor(private authorizationAPI: TokenService, private alertify: AlertifyService) { }
+  constructor(private authorizationAPI: TokenService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
+    this.regForm = new FormGroup({
+     name: new FormControl('', [Validators.required]),
+     password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+     city: new FormControl()
+    });
   }
 
   register()
   {
-    this.authorizationAPI.register(this.petData).subscribe(() =>
+    if (this.regForm.valid)
     {
-      this.alertify.ok('Rejestracja przebiegła pomyślnie');
-      console.log('OK');
-      console.log('Name: ' + this.petData.name + ' pass:  ' + this.petData.password);
-    }, error => {
-      console.log('Cos poszlo nie tak z rejestracja');
-      console.log(error);
-      this.alertify.error(error);
-    });
-
+      this.petData = Object.assign({}, this.regForm.value);
+      this.authorizationAPI.register(this.petData).subscribe(() => {
+        this.alertify.ok('Rejestracja przebiegła pomyślnie. Można się zalogować');
+      }, error => {
+        if(error == 'Server Error')
+        {
+          this.alertify.error("Użytkownik o tej nazwie już istnieje. Wybierz inną.");
+        } else
+        {
+          this.alertify.error(error);
+        }
+      }, () => {
+          this.cancelRegistration();
+      });
+    }
   }
 
   cancelRegistration()

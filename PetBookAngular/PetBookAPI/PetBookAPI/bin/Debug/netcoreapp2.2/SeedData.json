@@ -3,7 +3,7 @@
     "Name": "Bunia",
     "Gender": "female",
     "Age": 1,
-    "Password": "password",
+    "Password": "test",
     "Description": "Nulla excint. Laboris cupidatat aute do id aute nisi fugiat. Aute laborum tempor ullamco elit exercitation veniam commodo elit dolor.\r\n",
     "City": "Warszawa",
     "Photos": [
@@ -120,7 +120,7 @@
     ]
   },
   {
-    "Name": "Salazar",
+    "Name": "Dunbar",
     "Gender": "male",
     "Age": 4,
     "Password": "test",

@@ -49,6 +49,7 @@ export class PeteditionComponent implements OnInit {
           mainPhoto: responsePhoto.mainPhoto
         };
         this.photos.push(photo);
+        this.alertify.ok('Zdjęcie zostało dodane pomyślnie.');
       }
     };
   }
@@ -77,7 +78,7 @@ export class PeteditionComponent implements OnInit {
   setPhoto(photo: Photo)
    {
     this.petService.setPhoto(this.tokenService.getUserIdFromToken(), photo.id).subscribe(() => {
-      this.alertify.ok('Zdjęcie główne zostało zmienione.');
+      this.alertify.ok('Zdjęcie główne zostało zmienione. Zmiany będą widoczne na profilu');
     }, error => {
       this.alertify.error(error);
     });

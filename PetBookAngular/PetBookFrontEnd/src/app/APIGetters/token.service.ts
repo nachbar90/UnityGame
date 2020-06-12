@@ -31,6 +31,7 @@ logged()
 
 register(petData: any)
 {
+  console.log('Name: ' + petData.name + ' pass:  ' + petData.password);
   return this.http.post(this.url + 'registration', petData);
 }
 

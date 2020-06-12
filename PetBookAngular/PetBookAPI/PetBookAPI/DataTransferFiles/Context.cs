@@ -16,6 +16,7 @@ namespace PetBookAPI.DataTransferFiles
 
         public DbSet<Pet> Pets { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Likes> Likes { get; set; }
 
     }
 }

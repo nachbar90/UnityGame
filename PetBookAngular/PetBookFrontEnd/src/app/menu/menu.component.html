@@ -6,9 +6,6 @@
         <a *ngIf="logged()" class="nav-link link" [routerLink]="['/pets']" >Zdjęcia</a>
       </li>
       <li class="nav-item" routerLinkActive="router-link-active">
-        <a *ngIf="logged()" class="nav-link link" [routerLink]="['/likes']"  >Polubienia</a>
-      </li>
-      <li class="nav-item" routerLinkActive="router-link-active">
         <a *ngIf="logged()" class="nav-link link" [routerLink]="['/pets/', petId]">Mój profil</a>
       </li>
     </ul>

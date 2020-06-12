@@ -15,6 +15,7 @@ namespace PetBookAPI
             CreateMap<Photo, PhotoDTO>();
             CreateMap<EditPetDTO, Pet>();
             CreateMap<CloudPhotoDto, Photo>();
+            CreateMap<Likes, LikesDTO>();
         }
     }
 }

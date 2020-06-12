@@ -16,5 +16,7 @@ namespace PetBookAPI.DataTransferFiles
         Task<Photo> GetPhoto(int photoId);
         Task<Photo> GetMainPhoto(int petId);
         void DeletePhoto(Photo photo);
+        void AddLike(int likerId, int petId);
+        List<int> GetLikes(int petId);
     }
 }

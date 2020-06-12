@@ -11,7 +11,7 @@
               </div>
               <div class="card-footer">
               <small class="text-muted">{{pet.city}}</small>
-              <li class="list-inline-item like"><button class="btn btn-danger btn-sm likeButton"><i class="fa fa-heart"></i></button></li>
+              <li class="list-inline-item like"><button *ngIf="!isProfileOfCurrentUser(pet.id)" class="btn btn-danger btn-sm likeButton" (click)="addLike(pet.id, pet.name)"><i class="fa fa-heart"></i></button></li>
               </div>
             </div>
           </div>

@@ -36,4 +36,14 @@ export class PetService {
   {
     return this.client.delete(this.url + 'pets/' + petId + '/photo/' + photoId);
   }
+
+  AddLike(petId: number, likerId: number)
+  {
+    return this.client.post(this.url + 'pets/' + petId + '/likes/' + likerId, '');
+  }
+
+  getPetsWhichLiked(petId: number): Observable<Pet[]>
+  {
+    return this.client.get<Pet[]>(this.url + 'pets/' + petId + '/likes');
+  }
 }

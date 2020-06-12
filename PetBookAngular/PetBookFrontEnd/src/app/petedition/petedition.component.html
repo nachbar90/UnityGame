@@ -57,7 +57,7 @@
           <div class="card-footer">
             <div class="btn-group d-flex">
               <button class="btn btn-secondary backbutton" form="edit" [routerLink]="['/pets/', pet?.id]"><i class="fa fa-arrow-left fa-lg"></i>  Powrót do profilu</button>
-              <button class="btn btn-success button" form="edit"><i class="fa fa-floppy-o fa-lg"></i>   Zapisz zmiany</button>
+              <button [disabled]="!editForm.dirty" class="btn btn-success button" form="edit"><i class="fa fa-floppy-o fa-lg" ></i>   Zapisz zmiany</button>
             </div>
           </div>
         </div>

@@ -16,11 +16,14 @@ export class SinglepetComponent implements OnInit {
   pet: Pet;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  pets: Pet[];
 
-  constructor(private petService: PetService, private route: ActivatedRoute, private router: Router, private tokenService: TokenService) { }
+  constructor(private petService: PetService, private route: ActivatedRoute, private router: Router,
+     private tokenService: TokenService, private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.getPet();
+    this.getPetsWhichLikedYou(this.tokenService.getUserIdFromToken());
     this.router.events.pipe(
       filter((event: RouterEvent) => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -92,5 +95,25 @@ export class SinglepetComponent implements OnInit {
       });
     }
     return images;
+  }
+
+  addLike(petId: number, name: any )
+  {
+    this.petService.AddLike(petId, this.tokenService.getUserIdFromToken()).subscribe(data =>
+     {
+       this.alertify.ok('Polubiłeś użytkownika ' + name);
+     }, error => {
+       this.alertify.info("Użytkownik został już polubiony");
+     });
+  }
+
+  getPetsWhichLikedYou(petId: number)
+  {
+    this.petService.getPetsWhichLiked(petId).subscribe((pets: Pet[]) =>
+     {
+       this.pets = pets;
+     }, error => {
+       console.log(error);
+     });
   }
 }

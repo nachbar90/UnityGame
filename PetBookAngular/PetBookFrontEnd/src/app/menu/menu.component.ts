@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../APIGetters/token.service';
 import { AlertifyService } from '../APIGetters/alertify.service';
 import { Router } from '@angular/router';
+import { nextTick } from 'q';
 
 @Component({
   selector: 'app-menu',
@@ -26,8 +27,11 @@ export class MenuComponent implements OnInit {
         this.router.navigate(['/pets']);
         this.petId = this.tokenService.getUserIdFromToken();
     }, error => {
+      if (error == "Unauthorized")
+      {
+        this.alertify.error("Nieprawidłowy login lub hasło");
+      }
       console.log(error);
-      this.alertify.error(error);
     });
   }
 

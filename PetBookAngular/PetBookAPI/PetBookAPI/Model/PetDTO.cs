@@ -15,5 +15,6 @@ namespace PetBookAPI.Model
         public string City { get; set; }
         public string Photo { get; set; }
         public List<PhotoDTO> Photos { get; set; }
+        public List<LikesDTO> Likes { get; set; }
     }
 }

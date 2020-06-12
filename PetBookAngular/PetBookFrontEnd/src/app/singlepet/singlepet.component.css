@@ -42,3 +42,10 @@
     height: 15vw;
    object-fit: cover;
   }
+
+  likePhoto
+  :host .likePhoto {
+   width: 50px!important ;
+   height: 50px!important ;
+   object-fit: cover;
+ }
